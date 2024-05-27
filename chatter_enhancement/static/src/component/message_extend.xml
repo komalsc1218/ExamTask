@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t name="mail.Message_extend" t-inherit="mail.Message" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('o_Message_core')]//div[hasclass('o_Message_header')]" position="after">
+            <div class="extra_infomation">
+                <div class="date_info d-flex flex-wrap align-items-baseline" t-if="messageView.message.datetime">
+                    <span>
+                        <strong>Date :</strong> 
+                        <t t-esc="messageView.message.datetime" /> 
+                    </span>
+                </div>
+                <div class="outgoingmail_server_info d-flex flex-wrap align-items-baseline" t-if="messageView.message.outgoing_mail_server_name">
+                    <span>
+                        <strong>Outgoing Mail Server :</strong>
+                        <t t-esc="messageView.message.outgoing_mail_server_name"/>
+                    </span>
+                </div>
+                <div class="recipient_info d-flex flex-wrap align-items-baseline" t-if="messageView.message.recipients_list">
+                    <span>
+                        <strong>Recipients :</strong>
+                        <t t-esc="messageView.message.recipients_list"/>
+                    </span>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>
